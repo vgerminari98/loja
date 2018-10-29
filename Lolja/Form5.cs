@@ -33,7 +33,7 @@ namespace Lolja
             if (resultado >= 1)
             {
                 MessageBox.Show("Já existe usuario com este nome!!! Digite outro nome de usuario.");
-                    txtUsuario.Clear();
+                txtUsuario.Clear();
             }
             else
             {
@@ -46,8 +46,6 @@ namespace Lolja
 
                 this.Close();
             }
-
-
         }
     }
 }

@@ -32,8 +32,8 @@ namespace Lolja
             mskCelular.Enabled = true;
             txtEmail.Enabled = true;
             btnNovo.Enabled = false;
-
         }
+
         private void Form6_Load(object sender, EventArgs e)
         {
             btnCadastrar.Enabled = false;
@@ -99,9 +99,7 @@ namespace Lolja
 
                 this.clientesTableAdapter.Fill(this.lojaDataSet2.clientes);
                 MessageBox.Show("Cliente cadastrado com sucesso!!");
-
             }
-
         }
 
         private void Form6_Load_1(object sender, EventArgs e)
@@ -113,7 +111,7 @@ namespace Lolja
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-         
+
         }
     }
 }

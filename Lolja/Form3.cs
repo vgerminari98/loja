@@ -34,22 +34,20 @@ namespace Lolja
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
-        { 
-            
-                Modelo mo = new Modelo();
-                DAO da = new DAO();
+        {
+            Modelo mo = new Modelo();
+            DAO da = new DAO();
 
-                mo.Categoria = txtCategoria.Text;
+            mo.Categoria = txtCategoria.Text;
 
-                da.categoria(mo);
+            da.categoria(mo);
 
-                txtCategoria.Clear();
+            txtCategoria.Clear();
 
-                MessageBox.Show("Categoria cadastrada com sucesso");
+            MessageBox.Show("Categoria cadastrada com sucesso");
 
-                txtCategoria.Enabled = false;
-                this.categoriasTableAdapter1.FillBy(this.lojaDataSet1.categorias);
-            
+            txtCategoria.Enabled = false;
+            this.categoriasTableAdapter1.FillBy(this.lojaDataSet1.categorias);
         }
 
         private void fillByToolStripButton_Click(object sender, EventArgs e)
@@ -71,7 +69,6 @@ namespace Lolja
             {
                 MessageBox.Show("Necessário escolher uma categoria");
             }
-            
 
             else
             {
@@ -88,11 +85,6 @@ namespace Lolja
                 txtCategoria.Enabled = false;
 
                 this.categoriasTableAdapter1.FillBy(this.lojaDataSet1.categorias);
-
-
-
-                
-
             }
         }
 
@@ -139,8 +131,6 @@ namespace Lolja
 
                 txtCategoria.Clear();
                 txtCategoria.Enabled = false;
-
-
             }
         }
 
@@ -149,6 +139,5 @@ namespace Lolja
             txtCategoria.Clear();
             txtCategoria.Enabled = false;
         }
-
     }
 }

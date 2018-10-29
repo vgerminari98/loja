@@ -17,8 +17,6 @@ namespace Lolja
         //private String usuario;
         //private String senha;
 
-
-
         //Login de Usuario
         public void login(Modelo mo)
         {
@@ -36,11 +34,9 @@ namespace Lolja
                 mo.Valor = valor;
 
                 conexao.Close();
-
             }
             catch (Exception ex)
             {
-
                 throw new Exception("Não foi possivel se conectar " + ex.Message);
             }
         }
@@ -52,7 +48,6 @@ namespace Lolja
             {
                 conexao = new MySqlConnection(caminho);
                 conexao.Open();
-
 
                 /*inserir a string de select dentro da variavel comprar
                 String compararProduto = "SELECT COUNT(*) FROM desc_categoria WHERE categoria='" + mo.Categoria+"'";
@@ -66,11 +61,9 @@ namespace Lolja
 
                 conexao.Close();*/
 
-
                 string inserir = "INSERT INTO CATEGORIAS(desc_categoria, estado) values('" + mo.Categoria + "'" + ", true" + ")";
                 MySqlCommand comandos = new MySqlCommand(inserir, conexao);
 
-                
                 comandos.ExecuteNonQuery();
 
                 conexao.Close();
@@ -78,24 +71,17 @@ namespace Lolja
             catch (Exception ex)
             {
                 throw new Exception("Erro de comandos: " + ex.Message);
-
             }
         }
-
-
-
 
         //Excluir Categoria 
         public void excluirCategoria(Modelo mo)
         {
-
             try
             {
-                
                 conexao = new MySqlConnection(caminho);
                 conexao.Open();
 
-          
                 string excluir = "UPDATE categorias SET estado=false where desc_categoria='" + mo.Categoria + "'";
                 MySqlCommand comandos = new MySqlCommand(excluir,conexao);
 
@@ -146,13 +132,11 @@ namespace Lolja
                 mo.Valor = valor;
 
                 conexao.Close();
-
             }
             catch (Exception ex)
             {
                 throw new Exception("Não foi possível se conectar" + ex.Message);
             }
-
         }
 
         public void cadastro(Modelo mo)
@@ -168,12 +152,10 @@ namespace Lolja
 
                 comandos.ExecuteNonQuery();
                 conexao.Close();
-
             }
             catch (Exception ex)
             {
                 throw new Exception("Erro de comandos:" + ex.Message);
-
             }
         }
 
@@ -191,7 +173,6 @@ namespace Lolja
                 mo.Valor = valor;
 
                 conexao.Close();
-
             }
             catch (Exception ex)
             {
@@ -213,12 +194,10 @@ namespace Lolja
 
                 comandos.ExecuteNonQuery();
                 conexao.Close();
-
             }
             catch (Exception ex)
             {
                 throw new Exception("Erro de comandos:" + ex.Message);
-
             }
         }
 
@@ -243,38 +222,32 @@ namespace Lolja
                 //comandos sera executado
                 comandos.ExecuteNonQuery();
                 conexao.Close();
-
             }
             catch (Exception ex)
             {
                 throw new Exception("Erro de comandos:" + ex.Message);
             }
-
         }
 
         //altera Produto
         public void alterarProduto(Modelo mo) 
         {
             try {
+                conexao = new MySqlConnection(caminho);
+                conexao.Open();
+                //transforma formato do valor para americano
+                double numero = Convert.ToDouble(mo.ValorProduto);
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+                Convert.ToDouble(numero);
 
-            conexao = new MySqlConnection(caminho);
-            conexao.Open();
-            //transforma formato do valor para americano
-            double numero = Convert.ToDouble(mo.ValorProduto);
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
-            Convert.ToDouble(numero);
-
-
-            string alterar = "UPDATE produtos SET desc_produtos'"+mo.DescProduto+"', valor=" +numero +"WHERE codigo_produtos="+mo.CodProduto + "";
-              MySqlCommand comandos = new MySqlCommand(alterar, conexao);
-            comandos.ExecuteNonQuery();
-            conexao.Close();
+                string alterar = "UPDATE produtos SET desc_produtos'"+mo.DescProduto+"', valor=" +numero +"WHERE codigo_produtos="+mo.CodProduto + "";
+                MySqlCommand comandos = new MySqlCommand(alterar, conexao);
+                comandos.ExecuteNonQuery();
+                conexao.Close();
             }
             catch(Exception ex) {
                 throw new Exception("Erro de comandos: " + ex.Message);
             }
         }
-
     }
 }
-

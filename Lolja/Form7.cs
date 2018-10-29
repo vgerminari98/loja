@@ -58,7 +58,6 @@ namespace Lolja
             if ((txtDescricao.Text == "") && (txtValor.Text == ""))
             {
                 MessageBox.Show("Necessário o preenchimento! ");
-
             }
             else
             {
@@ -78,11 +77,7 @@ namespace Lolja
                 btnCadastrar.Enabled = false;
                 MessageBox.Show("Produto cadastrado com sucesso! ");
                 this.produtosTableAdapter.Fill(this.lojaDataSet3.produtos);
-
-
             }
-
- 
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -106,7 +101,6 @@ namespace Lolja
                 mo.CodProduto = int.Parse(txtValor.Text);
                 //falta categoria
 
-
                 da.alterarProduto(mo);
 
                 MessageBox.Show("Produto alterado com sucesso");
@@ -120,7 +114,8 @@ namespace Lolja
                 this.produtosTableAdapter.Fill(this.lojaDataSet3.produtos);
             }
         }
-               private void desabilita_campos(object sender, EventArgs e)
+
+        private void desabilita_campos(object sender, EventArgs e)
         {
             txtDescricao.Enabled = false;
             txtValor.Enabled = false;
@@ -130,7 +125,7 @@ namespace Lolja
             btnCancelar.Enabled = false;
         }
 
-           private void habilita_campos(object sender, EventArgs e)
+        private void habilita_campos(object sender, EventArgs e)
         {
             txtDescricao.Enabled = true;
             txtValor.Enabled = true;
@@ -142,7 +137,7 @@ namespace Lolja
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-        
+
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -160,5 +155,4 @@ namespace Lolja
             //faltou categoria
         }
     }
-     
 }

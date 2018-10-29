@@ -32,16 +32,14 @@ namespace Lolja
             resultado = mo.Valor;
 
             if (resultado == 1){
-
                 //string texto = mo.Usuario;
                 Form2 form2 = new Form2();
                 form2.Show();
             }else{
                 MessageBox.Show("Login invalido!!! Tente Novamente");
             }
-                txtUsuario.Clear();
-                txtSenha.Clear();
-
+            txtUsuario.Clear();
+            txtSenha.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -59,9 +57,5 @@ namespace Lolja
         {
 
         }
-
-
-
-
     }
 }
