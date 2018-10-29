@@ -22,7 +22,6 @@ namespace Lolja
             this.produtosTableAdapter.Fill(this.lojaDataSet5.produtos);
             // TODO: This line of code loads data into the 'lojaDataSet4.clientes' table. You can move, or remove it, as needed.
             this.clientesTableAdapter.Fill(this.lojaDataSet4.clientes);
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
